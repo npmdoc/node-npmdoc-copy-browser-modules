@@ -1,0 +1,115 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+    >copy-browser-modules (v4.0.0)</a>
+</h1>
+<h4>A task to build browser dependencies out into a simple tree from node_modules packages</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.copy-browser-modules">module copy-browser-modules</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.copy-browser-modules.copy-browser-modules">
+            function <span class="apidocSignatureSpan"></span>copy-browser-modules
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.copy-browser-modules" id="apidoc.module.copy-browser-modules">module copy-browser-modules</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.copy-browser-modules.copy-browser-modules" id="apidoc.element.copy-browser-modules.copy-browser-modules">
+        function <span class="apidocSignatureSpan"></span>copy-browser-modules
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function copyBrowserTo(options) {
+    var root, dest, each, docroot;
+    if (arguments.length &#x3e; 1 &#x26;&#x26; arguments.length &#x3c;= 3) {
+        root = arguments[0];
+        dest = arguments[1];
+        each = arguments[2];
+        docroot = process.cwd();
+    } else {
+        root = options.src;
+        dest = options.dest;
+        each = options.each;
+        docroot = options.basePath || process.cwd();
+    }
+
+    return collectBrowser(root).then(function (pkgs) {
+        return rsvp.map(pkgs, collectFiles(root));
+    }).then(copyFromTo(root, dest, each, path.resolve(docroot)));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
